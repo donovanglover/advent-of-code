@@ -1,3 +1,5 @@
+pub mod day1part2;
+
 pub fn day_one(str: &str) -> u32 {
     let mut sum = 0;
 
