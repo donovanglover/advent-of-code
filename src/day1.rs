@@ -1,4 +1,4 @@
-pub fn day_one(str: &str) -> u32 {
+pub fn trebuchet(str: &str) -> u32 {
     let mut sum = 0;
 
     for line in str.lines() {
@@ -32,8 +32,8 @@ mod tests {
     use super::*;
 
     #[test]
-    fn day_one_example() {
-        assert_eq!(day_one("
+    fn example() {
+        assert_eq!(trebuchet("
             1abc2
             pqr3stu8vwx
             a1b2c3d4e5f
@@ -42,9 +42,9 @@ mod tests {
     }
 
     #[test]
-    fn day_one_input() {
+    fn input() {
         if let Ok(input) = std::fs::read_to_string("./input/01.txt") {
-            assert_eq!(day_one(&input), 55621)
+            assert_eq!(trebuchet(&input), 55621)
         }
     }
 }

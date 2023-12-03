@@ -1,4 +1,4 @@
-pub fn day_one_part_two(str: &str) -> u32 {
+pub fn trebuchet(str: &str) -> u32 {
     let mut sum = 0;
     let str_nums = std::collections::HashMap::from([
         ("one", '1'),
@@ -53,8 +53,8 @@ mod tests {
     use super::*;
 
     #[test]
-    fn day_one_part_two_example() {
-        assert_eq!(day_one_part_two("
+    fn example() {
+        assert_eq!(trebuchet("
             two1nine
             eightwothree
             abcone2threexyz
@@ -66,9 +66,9 @@ mod tests {
     }
 
     #[test]
-    fn day_one_part_two_input() {
+    fn input() {
         if let Ok(input) = std::fs::read_to_string("./input/01.txt") {
-            assert_eq!(day_one_part_two(&input), 53592)
+            assert_eq!(trebuchet(&input), 53592)
         }
     }
 }
