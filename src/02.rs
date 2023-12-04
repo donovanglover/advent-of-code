@@ -1,5 +1,3 @@
-use crate::chomp;
-
 pub fn cube_conundrum(str: &str) -> u32 {
     let mut sum = 0;
 
@@ -16,7 +14,7 @@ pub fn cube_conundrum(str: &str) -> u32 {
 
         for word in line.split(' ') {
             if prev_game {
-                if let Ok(number) = chomp(word).parse() {
+                if let Ok(number) = crate::chomp(word).parse() {
                     game_number = number;
                 }
 
@@ -35,9 +33,9 @@ pub fn cube_conundrum(str: &str) -> u32 {
             }
 
             if word.contains(',') {
-                colors.entry(chomp(word)).and_modify(|i| { *i += num });
+                colors.entry(crate::chomp(word)).and_modify(|i| { *i += num });
             } else if word.contains(';') {
-                colors.entry(chomp(word)).and_modify(|i| { *i += num });
+                colors.entry(crate::chomp(word)).and_modify(|i| { *i += num });
 
                 if !valid(&colors) {
                     is_valid = false;
@@ -136,7 +134,7 @@ pub fn cube_conundrum_part2(str: &str) -> u32 {
             }
 
             let color = match word.contains(',') || word.contains(';') {
-                true => chomp(word),
+                true => crate::chomp(word),
                 false => word,
             };
 
