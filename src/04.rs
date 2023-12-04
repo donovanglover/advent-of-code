@@ -93,8 +93,8 @@ pub fn scratchcards_part2(str: &str) -> u32 {
         let mut n = 0;
 
         while n < copies[game_number - 1] {
-            for i in game_number..(game_number + num_matches) {
-                copies[i] += 1;
+            for i in 0..num_matches {
+                copies[game_number + i] += 1;
             }
 
             n += 1;
