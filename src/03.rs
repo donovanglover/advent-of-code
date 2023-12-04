@@ -63,7 +63,7 @@ fn is_symbol(char: &char) -> bool {
 }
 
 #[cfg(test)]
-mod tests {
+mod part1 {
     #[test]
     fn example() {
         assert_eq!(super::gear_ratios("\
