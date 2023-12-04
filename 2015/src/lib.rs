@@ -13,6 +13,9 @@ pub mod day4;
 #[path="05.rs"]
 pub mod day5;
 
+#[path="06.rs"]
+pub mod day6;
+
 /// Given a `file!()`, return its input.
 pub fn input(file: &str) -> String {
     if let Some(file) = std::path::Path::new(file).file_stem() {
