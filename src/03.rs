@@ -3,15 +3,11 @@ pub fn gear_ratios(str: &str) -> u32 {
     let grid = make_grid(str);
 
     for row in 0..grid.len() {
-        let mut is_number = false;
         let mut is_adjacent = false;
         let mut num_str = String::new();
 
-        // Note: This algorithm checks grid elements that have already been checked.
         for col in 0..grid[row].len() {
             if grid[row][col].is_ascii_digit() {
-                is_number = true;
-
                 num_str.push(grid[row][col]);
 
                 is_adjacent = is_adjacent ||
@@ -27,23 +23,17 @@ pub fn gear_ratios(str: &str) -> u32 {
                         is_symbol(&grid[row + 1][col]) ||
                         (col + 1 < grid[row].len() && is_symbol(&grid[row + 1][col + 1]))
                     ));
-
-                continue;
-            }
-
-            if is_number {
+            } else if !num_str.is_empty() {
                 if is_adjacent {
                     if let Ok(num) = num_str.parse::<u32>() {
-                        num_str.clear();
                         sum += num;
                     }
-                } else {
-                    num_str.clear();
-                }
-            }
 
-            is_number = false;
-            is_adjacent = false;
+                    is_adjacent = false;
+                }
+
+                num_str.clear();
+            }
         }
     }
 
@@ -98,7 +88,7 @@ mod tests {
         if let Some(file) = Path::new(file).file_stem() {
             if let Some(file) = file.to_str() {
                 if let Ok(input) = fs::read_to_string(format!("./input/{file}.txt")) {
-                    assert_eq!(gear_ratios(&input), 99999999);
+                    assert_eq!(gear_ratios(&input), 534001);
                 }
             }
         }
