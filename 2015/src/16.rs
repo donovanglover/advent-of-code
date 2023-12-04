@@ -82,3 +82,69 @@ cars: 2
 perfumes: 1", &crate::input(file!())), 213);
     }
 }
+
+pub fn aunt_sue_part2(str: &str, aunts: &str) -> u32 {
+    let aunts = get_aunts(aunts);
+    let map = get_map(str);
+    let mut n = 1;
+
+    for aunt in aunts {
+        let mut is_aunt = true;
+
+        for (key, value) in aunt {
+            if let Some(v) = map.get(key) {
+                match key {
+                    "cats" | "trees" => {
+                        if value <= *v {
+                            is_aunt = false;
+                            break;
+                        }
+                    }
+
+                    "pomeranians" | "goldfish" => {
+                        if value >= *v {
+                            is_aunt = false;
+                            break;
+                        }
+                    }
+
+                    _ => {
+                        if *v != value {
+                            is_aunt = false;
+                            break;
+                        }
+                    }
+                }
+            } else {
+                is_aunt = false;
+                break;
+            }
+        }
+
+        if is_aunt {
+            return n
+        } else {
+            n += 1
+        }
+    }
+
+    0
+}
+
+#[cfg(test)]
+mod part2 {
+    #[test]
+    fn input() {
+        assert_eq!(super::aunt_sue_part2("\
+children: 3
+cats: 7
+samoyeds: 2
+pomeranians: 3
+akitas: 0
+vizslas: 0
+goldfish: 5
+trees: 3
+cars: 2
+perfumes: 1", &crate::input(file!())), 323);
+    }
+}
