@@ -6,8 +6,8 @@ pub fn scratchcards(str: &str) -> u32 {
         let mut winning = vec![];
         let mut points = 0;
 
-        for word in line.split(" ") {
-            if word == "Game" || word.contains(":") { continue; }
+        for word in line.split(' ') {
+            if word == "Game" || word.contains(':') { continue; }
 
             if word == "|" {
                 is_winning = false;
