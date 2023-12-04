@@ -103,9 +103,7 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"), 8)
 
     #[test]
     fn input() {
-        if let Ok(input) = std::fs::read_to_string("./input/02.txt") {
-            assert_eq!(cube_conundrum(&input), 2716)
-        }
+        assert_eq!(cube_conundrum(&crate::input(file!())), 2716);
     }
 }
 
@@ -177,8 +175,6 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"), 2286)
 
     #[test]
     fn input() {
-        if let Ok(input) = std::fs::read_to_string("./input/02.txt") {
-            assert_eq!(cube_conundrum_part2(&input), 72227);
-        }
+        assert_eq!(cube_conundrum_part2(&crate::input(file!())), 72227);
     }
 }

@@ -43,9 +43,7 @@ mod part1 {
 
     #[test]
     fn input() {
-        if let Ok(input) = std::fs::read_to_string("./input/01.txt") {
-            assert_eq!(trebuchet(&input), 55621)
-        }
+        assert_eq!(trebuchet(&crate::input(file!())), 55621);
     }
 }
 
@@ -118,8 +116,6 @@ mod part2 {
 
     #[test]
     fn input() {
-        if let Ok(input) = std::fs::read_to_string("./input/01.txt") {
-            assert_eq!(trebuchet_part2(&input), 53592);
-        }
+        assert_eq!(trebuchet_part2(&crate::input(file!())), 53592);
     }
 }
