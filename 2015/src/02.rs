@@ -10,7 +10,7 @@ pub fn i_was_told_there_would_be_no_math(str: &str) -> u32 {
             }
         }
 
-        let sides = vec![lwh[0] * lwh[1], lwh[1] * lwh[2], lwh[2] * lwh[0]];
+        let sides = [lwh[0] * lwh[1], lwh[1] * lwh[2], lwh[2] * lwh[0]];
 
         if let Some(smallest) = sides.iter().min() {
             sum += (2 * sides[0]) + (2 * sides[1]) + (2 * sides[2]) + smallest;

@@ -3,7 +3,7 @@ pub fn perfectly_spherical_houses_in_a_vacuum(str: &str) -> usize {
     let mut y = 0;
     let mut map = std::collections::HashMap::new();
 
-    map.insert(format!("0,0"), 0);
+    map.insert("0,0".to_string(), 0);
 
     for char in str.chars() {
         match char {
@@ -40,11 +40,9 @@ pub fn perfectly_spherical_houses_in_a_vacuum_part2(str: &str) -> usize {
     let mut y = [0, 0];
     let mut map = std::collections::HashMap::new();
 
-    map.insert(format!("0,0"), 0);
+    map.insert("0,0".to_string(), 0);
 
-    let mut n = 0;
-
-    for char in str.chars() {
+    for (n, char) in str.char_indices() {
         match char {
             '<' => x[n % 2] -= 1,
             '>' => x[n % 2] += 1,
@@ -54,8 +52,6 @@ pub fn perfectly_spherical_houses_in_a_vacuum_part2(str: &str) -> usize {
         };
 
         map.insert(format!("{},{}", x[n % 2], y[n % 2]), 0);
-
-        n += 1;
     }
 
     map.len()
