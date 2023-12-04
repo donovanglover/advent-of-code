@@ -20,6 +20,5 @@ I like how the focus is solving problems instead of selling "Problems as a Servi
 
 ## Rules
 
-- No `.unwrap()` or `.expect()`
 - No `use` declarations
 - No external crates
