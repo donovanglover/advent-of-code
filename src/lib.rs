@@ -1,8 +1,6 @@
 #[path="01.rs"]
 pub mod day1;
 
-pub mod day1part2;
-
 #[path="02.rs"]
 pub mod day2;
 
