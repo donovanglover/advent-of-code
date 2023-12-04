@@ -59,7 +59,7 @@ fn get_map(str: &str) -> HashMap<&str, u32> {
     for line in str.lines() {
         let mut words = line.split(' ');
 
-        map.insert(crate::chomp(words.next().unwrap()), words.next().unwrap().parse().unwrap());
+        map.insert(sugar::chomp(words.next().unwrap()), words.next().unwrap().parse().unwrap());
     }
 
     map

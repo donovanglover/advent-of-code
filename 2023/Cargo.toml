@@ -8,3 +8,4 @@ edition.workspace = true
 publish.workspace = true
 
 [dependencies]
+sugar = { path = "../sugar" }
