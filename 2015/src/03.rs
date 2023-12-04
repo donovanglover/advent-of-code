@@ -31,7 +31,7 @@ mod part1 {
 
     #[test]
     fn input() {
-        assert_eq!(super::perfectly_spherical_houses_in_a_vacuum(&crate::input(file!())), 2592);
+        assert_eq!(super::perfectly_spherical_houses_in_a_vacuum(&sugar::input(file!())), 2592);
     }
 }
 
@@ -68,6 +68,6 @@ mod part2 {
 
     #[test]
     fn input() {
-        assert_eq!(super::perfectly_spherical_houses_in_a_vacuum_part2(&crate::input(file!())), 2360);
+        assert_eq!(super::perfectly_spherical_houses_in_a_vacuum_part2(&sugar::input(file!())), 2360);
     }
 }

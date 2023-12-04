@@ -41,7 +41,7 @@ mod part1 {
 
     #[test]
     fn input() {
-        assert_eq!(super::trebuchet(&crate::input(file!())), 55621);
+        assert_eq!(super::trebuchet(&sugar::input(file!())), 55621);
     }
 }
 
@@ -112,6 +112,6 @@ mod part2 {
 
     #[test]
     fn input() {
-        assert_eq!(super::trebuchet_part2(&crate::input(file!())), 53592);
+        assert_eq!(super::trebuchet_part2(&sugar::input(file!())), 53592);
     }
 }

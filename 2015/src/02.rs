@@ -31,7 +31,7 @@ mod part1 {
 
     #[test]
     fn input() {
-        assert_eq!(super::i_was_told_there_would_be_no_math(&crate::input(file!())), 1588178);
+        assert_eq!(super::i_was_told_there_would_be_no_math(&sugar::input(file!())), 1588178);
     }
 }
 
@@ -66,6 +66,6 @@ mod part2 {
 
     #[test]
     fn input() {
-        assert_eq!(super::i_was_told_there_would_be_no_math_part2(&crate::input(file!())), 3783758);
+        assert_eq!(super::i_was_told_there_would_be_no_math_part2(&sugar::input(file!())), 3783758);
     }
 }

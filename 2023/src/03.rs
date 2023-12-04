@@ -81,7 +81,7 @@ mod part1 {
 
     #[test]
     fn input() {
-        assert_eq!(super::gear_ratios(&crate::input(file!())), 535351);
+        assert_eq!(super::gear_ratios(&sugar::input(file!())), 535351);
     }
 }
 
@@ -197,6 +197,6 @@ mod part2 {
 
     #[test]
     fn input() {
-        assert_eq!(super::gear_ratios_part2(&crate::input(file!())), 87287096);
+        assert_eq!(super::gear_ratios_part2(&sugar::input(file!())), 87287096);
     }
 }

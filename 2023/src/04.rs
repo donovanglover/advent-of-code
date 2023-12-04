@@ -53,7 +53,7 @@ Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"), 13);
 
     #[test]
     fn input() {
-        assert_eq!(super::scratchcards(&crate::input(file!())), 20667);
+        assert_eq!(super::scratchcards(&sugar::input(file!())), 20667);
     }
 }
 
@@ -119,6 +119,6 @@ Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"), 30);
 
     #[test]
     fn input() {
-        assert_eq!(super::scratchcards_part2(&crate::input(file!())), 5833065);
+        assert_eq!(super::scratchcards_part2(&sugar::input(file!())), 5833065);
     }
 }

@@ -59,7 +59,7 @@ mod part1 {
 
     #[test]
     fn input() {
-        assert_eq!(super::probably_a_fire_hazard(&crate::input(file!())), 377891);
+        assert_eq!(super::probably_a_fire_hazard(&sugar::input(file!())), 377891);
     }
 }
 
@@ -135,6 +135,6 @@ mod part2 {
 
     #[test]
     fn input() {
-        assert_eq!(super::probably_a_fire_hazard_part2(&crate::input(file!())), 14110788);
+        assert_eq!(super::probably_a_fire_hazard_part2(&sugar::input(file!())), 14110788);
     }
 }

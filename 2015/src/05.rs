@@ -50,7 +50,7 @@ mod part1 {
 
     #[test]
     fn input() {
-        assert_eq!(super::doesnt_he_have_intern_elves_for_this(&crate::input(file!())), 258);
+        assert_eq!(super::doesnt_he_have_intern_elves_for_this(&sugar::input(file!())), 258);
     }
 }
 
@@ -105,6 +105,6 @@ mod part2 {
 
     #[test]
     fn input() {
-        assert_eq!(super::doesnt_he_have_intern_elves_for_this_part2(&crate::input(file!())), 53);
+        assert_eq!(super::doesnt_he_have_intern_elves_for_this_part2(&sugar::input(file!())), 53);
     }
 }

@@ -79,7 +79,7 @@ vizslas: 0
 goldfish: 5
 trees: 3
 cars: 2
-perfumes: 1", &crate::input(file!())), 213);
+perfumes: 1", &sugar::input(file!())), 213);
     }
 }
 
@@ -145,6 +145,6 @@ vizslas: 0
 goldfish: 5
 trees: 3
 cars: 2
-perfumes: 1", &crate::input(file!())), 323);
+perfumes: 1", &sugar::input(file!())), 323);
     }
 }

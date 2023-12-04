@@ -29,7 +29,7 @@ mod part1 {
 
     #[test]
     fn input() {
-        assert_eq!(super::not_quite_lisp(&crate::input(file!())), 280);
+        assert_eq!(super::not_quite_lisp(&sugar::input(file!())), 280);
     }
 }
 
@@ -61,6 +61,6 @@ mod part2 {
 
     #[test]
     fn input() {
-        assert_eq!(super::not_quite_lisp_part2(&crate::input(file!())), 1797);
+        assert_eq!(super::not_quite_lisp_part2(&sugar::input(file!())), 1797);
     }
 }

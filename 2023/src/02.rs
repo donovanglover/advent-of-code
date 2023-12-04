@@ -99,7 +99,7 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"), 8)
 
     #[test]
     fn input() {
-        assert_eq!(super::cube_conundrum(&crate::input(file!())), 2716);
+        assert_eq!(super::cube_conundrum(&sugar::input(file!())), 2716);
     }
 }
 
@@ -169,6 +169,6 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"), 2286)
 
     #[test]
     fn input() {
-        assert_eq!(super::cube_conundrum_part2(&crate::input(file!())), 72227);
+        assert_eq!(super::cube_conundrum_part2(&sugar::input(file!())), 72227);
     }
 }

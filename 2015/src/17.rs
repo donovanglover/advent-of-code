@@ -38,7 +38,7 @@ mod part1 {
 
     #[test]
     fn input() {
-        assert_eq!(super::no_such_thing_as_too_much(&crate::input(file!()), 150), 1304);
+        assert_eq!(super::no_such_thing_as_too_much(&sugar::input(file!()), 150), 1304);
     }
 }
 
@@ -84,6 +84,6 @@ mod part2 {
 
     #[test]
     fn input() {
-        assert_eq!(super::no_such_thing_as_too_much_part2(&crate::input(file!()), 150), 18);
+        assert_eq!(super::no_such_thing_as_too_much_part2(&sugar::input(file!()), 150), 18);
     }
 }
