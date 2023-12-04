@@ -1,3 +1,11 @@
+[workspace.package]
+version = "0.0.0"
+authors = ["Copyright (C) 2023 Donovan Glover <https://donovan.is/>"]
+repository = "https://github.com/donovanglover/adventofcode"
+license = "MIT"
+edition = "2021"
+publish = false
+
 [workspace]
 resolver = "2"
 members = [
