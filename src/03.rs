@@ -65,8 +65,6 @@ fn is_symbol(char: &char) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::path::Path;
-    use std::fs;
 
     #[test]
     fn example() {
@@ -85,14 +83,6 @@ mod tests {
 
     #[test]
     fn input() {
-        let file = file!();
-
-        if let Some(file) = Path::new(file).file_stem() {
-            if let Some(file) = file.to_str() {
-                if let Ok(input) = fs::read_to_string(format!("./input/{file}.txt")) {
-                    assert_eq!(gear_ratios(&input), 535351);
-                }
-            }
-        }
+        assert_eq!(gear_ratios(&crate::input(file!())), 535351);
     }
 }
