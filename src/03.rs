@@ -50,6 +50,8 @@ fn make_grid(str: &str) -> Vec<Vec<char>> {
             vec.push(char)
         }
 
+        vec.push('.');
+
         grid.push(vec)
     }
 
@@ -88,7 +90,7 @@ mod tests {
         if let Some(file) = Path::new(file).file_stem() {
             if let Some(file) = file.to_str() {
                 if let Ok(input) = fs::read_to_string(format!("./input/{file}.txt")) {
-                    assert_eq!(gear_ratios(&input), 534001);
+                    assert_eq!(gear_ratios(&input), 535351);
                 }
             }
         }
