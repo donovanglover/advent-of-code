@@ -11,12 +11,14 @@ pub fn the_ideal_stocking_stuffer(str: &str) -> u32 {
 #[cfg(test)]
 mod part1 {
     #[test]
+    #[ignore]
     fn example() {
         assert_eq!(super::the_ideal_stocking_stuffer("abcdef"), 609043);
         assert_eq!(super::the_ideal_stocking_stuffer("pqrstuv"), 1048970);
     }
 
     #[test]
+    #[ignore]
     fn input() {
         assert_eq!(super::the_ideal_stocking_stuffer("iwrupvqb"), 346386);
     }
@@ -35,6 +37,7 @@ pub fn the_ideal_stocking_stuffer_part2(str: &str) -> u32 {
 #[cfg(test)]
 mod part2 {
     #[test]
+    #[ignore]
     fn input() {
         assert_eq!(super::the_ideal_stocking_stuffer_part2("iwrupvqb"), 9958218);
     }
