@@ -26,10 +26,9 @@ pub fn cube_conundrum(str: &str) -> u32 {
                 continue;
             }
 
-            let color = if word.contains(',') || word.contains(';') {
-                chomp(word)
-            } else {
-                word
+            let color = match word.contains(',') || word.contains(';') {
+                true => chomp(word),
+                false => word,
             };
 
             if let Some(current_num) = colors.get(color) {
