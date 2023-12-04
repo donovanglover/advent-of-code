@@ -64,11 +64,9 @@ fn is_symbol(char: &char) -> bool {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
-
     #[test]
     fn example() {
-        assert_eq!(gear_ratios("\
+        assert_eq!(super::gear_ratios("\
 467..114..
 ...*......
 ..35..633.
@@ -83,6 +81,6 @@ mod tests {
 
     #[test]
     fn input() {
-        assert_eq!(gear_ratios(&crate::input(file!())), 535351);
+        assert_eq!(super::gear_ratios(&crate::input(file!())), 535351);
     }
 }

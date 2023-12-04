@@ -29,11 +29,9 @@ pub fn trebuchet(str: &str) -> u32 {
 
 #[cfg(test)]
 mod part1 {
-    use super::*;
-
     #[test]
     fn example() {
-        assert_eq!(trebuchet("
+        assert_eq!(super::trebuchet("
             1abc2
             pqr3stu8vwx
             a1b2c3d4e5f
@@ -43,7 +41,7 @@ mod part1 {
 
     #[test]
     fn input() {
-        assert_eq!(trebuchet(&crate::input(file!())), 55621);
+        assert_eq!(super::trebuchet(&crate::input(file!())), 55621);
     }
 }
 
@@ -99,11 +97,9 @@ pub fn trebuchet_part2(str: &str) -> u32 {
 
 #[cfg(test)]
 mod part2 {
-    use super::*;
-
     #[test]
     fn example() {
-        assert_eq!(trebuchet_part2(";
+        assert_eq!(super::trebuchet_part2(";
             two1nine
             eightwothree
             abcone2threexyz
@@ -116,6 +112,6 @@ mod part2 {
 
     #[test]
     fn input() {
-        assert_eq!(trebuchet_part2(&crate::input(file!())), 53592);
+        assert_eq!(super::trebuchet_part2(&crate::input(file!())), 53592);
     }
 }
