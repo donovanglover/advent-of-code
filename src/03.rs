@@ -84,3 +84,119 @@ mod part1 {
         assert_eq!(super::gear_ratios(&crate::input(file!())), 535351);
     }
 }
+
+pub fn gear_ratios_part2(str: &str) -> u32 {
+    let mut sum = 0;
+    let grid = make_grid(str);
+
+    for row in 0..grid.len() {
+        for col in 0..grid[row].len() {
+            let mut numbers = vec![];
+
+            if grid[row][col] == '*' {
+                if col > 0 && grid[row][col - 1].is_ascii_digit() {
+                    numbers.push(get_number(&grid[row], col - 1))
+                }
+
+                if col + 1 < grid[row].len() && grid[row][col + 1].is_ascii_digit() {
+                    numbers.push(get_number(&grid[row], col + 1))
+                }
+
+                if row > 0 {
+                    if col > 0 && grid[row - 1][col - 1].is_ascii_digit() {
+                        numbers.push(get_number(&grid[row - 1], col - 1))
+                    }
+
+                    if grid[row - 1][col].is_ascii_digit() {
+                        numbers.push(get_number(&grid[row - 1], col))
+                    }
+
+                    if col + 1 < grid[row].len() && grid[row - 1][col + 1].is_ascii_digit() {
+                        numbers.push(get_number(&grid[row - 1], col + 1))
+                    }
+
+                }
+
+                if row + 1 < grid.len() {
+                    if col > 0 && grid[row + 1][col - 1].is_ascii_digit() {
+                        numbers.push(get_number(&grid[row + 1], col - 1))
+                    }
+
+                    if grid[row + 1][col].is_ascii_digit() {
+                        numbers.push(get_number(&grid[row + 1], col))
+                    }
+
+                    if col + 1 < grid[row].len() && grid[row + 1][col + 1].is_ascii_digit() {
+                        numbers.push(get_number(&grid[row + 1], col + 1))
+                    }
+
+                }
+            }
+
+            numbers.dedup();
+
+            if numbers.len() == 2 {
+                sum += numbers[0] * numbers[1];
+            }
+        }
+    }
+
+    sum
+}
+
+fn get_number(list: &Vec<char>, i: usize) -> u32 {
+    let mut nums = list[i].to_string();
+
+    let mut left = i - 1;
+
+    while list[left].is_ascii_digit() {
+        nums.insert(0, list[left]);
+
+        if left > 0 {
+            left -= 1;
+        } else {
+            break;
+        }
+    }
+
+    let mut right = i + 1;
+
+    while list[right].is_ascii_digit() {
+        nums.push(list[right]);
+
+        if right < list.len() {
+            right += 1;
+        } else {
+            break;
+        }
+    }
+
+    if let Ok(num) = nums.parse() {
+        return num;
+    }
+
+    0
+}
+
+#[cfg(test)]
+mod part2 {
+    #[test]
+    fn example() {
+        assert_eq!(super::gear_ratios_part2("\
+467..114..
+...*......
+..35..633.
+......#...
+617*......
+.....+.58.
+..592.....
+......755.
+...$.*....
+.664.598.."), 467835);
+    }
+
+    #[test]
+    fn input() {
+        assert_eq!(super::gear_ratios_part2(&crate::input(file!())), 87287096);
+    }
+}
