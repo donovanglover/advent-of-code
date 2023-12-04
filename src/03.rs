@@ -14,64 +14,64 @@ pub fn gear_ratios(str: &str) -> u32 {
 
                 num_str.push(grid[row][col]);
 
-                if !is_adjacent {
+                if is_adjacent { continue };
+
+                if col > 0 {
+                    if let Some(left) = grid[row].get(col - 1) {
+                        if is_symbol(left) {
+                            is_adjacent = true;
+                        }
+                    }
+                }
+
+                if let Some(right) = grid[row].get(col + 1) {
+                    if is_symbol(right) {
+                        is_adjacent = true;
+                    }
+                }
+
+                if row > 0 {
+                    if let Some(top) = grid.get(row - 1) {
+                        if col > 0 {
+                            if let Some(top_left) = top.get(col - 1) {
+                                if is_symbol(top_left) {
+                                    is_adjacent = true;
+                                }
+                            }
+                        }
+
+                        if let Some(top_right) = top.get(col + 1) {
+                            if is_symbol(top_right) {
+                                is_adjacent = true;
+                            }
+                        }
+
+                        if let Some(top_above) = top.get(col) {
+                            if is_symbol(top_above) {
+                                is_adjacent = true;
+                            }
+                        }
+                    }
+                }
+
+                if let Some(bottom) = grid.get(row + 1) {
                     if col > 0 {
-                        if let Some(left) = grid[row].get(col - 1) {
-                            if is_symbol(left) {
+                        if let Some(bottom_left) = bottom.get(col - 1) {
+                            if is_symbol(bottom_left) {
                                 is_adjacent = true;
                             }
                         }
                     }
 
-                    if let Some(right) = grid[row].get(col + 1) {
-                        if is_symbol(right) {
+                    if let Some(bottom_right) = bottom.get(col + 1) {
+                        if is_symbol(bottom_right) {
                             is_adjacent = true;
                         }
                     }
 
-                    if row > 0 {
-                        if let Some(top) = grid.get(row - 1) {
-                            if col > 0 {
-                                if let Some(top_left) = top.get(col - 1) {
-                                    if is_symbol(top_left) {
-                                        is_adjacent = true;
-                                    }
-                                }
-                            }
-
-                            if let Some(top_right) = top.get(col + 1) {
-                                if is_symbol(top_right) {
-                                    is_adjacent = true;
-                                }
-                            }
-
-                            if let Some(top_above) = top.get(col) {
-                                if is_symbol(top_above) {
-                                    is_adjacent = true;
-                                }
-                            }
-                        }
-                    }
-
-                    if let Some(bottom) = grid.get(row + 1) {
-                        if col > 0 {
-                            if let Some(bottom_left) = bottom.get(col - 1) {
-                                if is_symbol(bottom_left) {
-                                    is_adjacent = true;
-                                }
-                            }
-                        }
-
-                        if let Some(bottom_right) = bottom.get(col + 1) {
-                            if is_symbol(bottom_right) {
-                                is_adjacent = true;
-                            }
-                        }
-
-                        if let Some(bottom_below) = bottom.get(col) {
-                            if is_symbol(bottom_below) {
-                                is_adjacent = true;
-                            }
+                    if let Some(bottom_below) = bottom.get(col) {
+                        if is_symbol(bottom_below) {
+                            is_adjacent = true;
                         }
                     }
                 }
