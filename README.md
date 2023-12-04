@@ -17,8 +17,3 @@ Some notable features of Rust include:
 ## Why Advent of Code
 
 I like how the focus is solving problems instead of selling "Problems as a Service".
-
-## Rules
-
-- No `use` declarations
-- No external crates
