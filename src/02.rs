@@ -1,3 +1,5 @@
+use crate::chomp;
+
 pub fn cube_conundrum(str: &str) -> u32 {
     let mut sum = 0;
 
@@ -83,12 +85,6 @@ fn valid(colors: &std::collections::HashMap<&str, u32>) -> bool {
     }
 
     true
-}
-
-fn chomp(str: &str) -> &str {
-    let mut chars = str.chars();
-    chars.next_back();
-    chars.as_str()
 }
 
 #[cfg(test)]
