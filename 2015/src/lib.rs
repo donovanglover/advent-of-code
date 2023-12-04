@@ -19,6 +19,9 @@ pub mod day6;
 #[path="07.rs"]
 pub mod day7;
 
+#[path="16.rs"]
+pub mod day16;
+
 #[path="17.rs"]
 pub mod day17;
 
@@ -33,4 +36,11 @@ pub fn input(file: &str) -> String {
     }
 
     String::new()
+}
+
+/// Given a string `str`, return `str` without the last character.
+pub fn chomp(str: &str) -> &str {
+    let mut chars = str.chars();
+    chars.next_back();
+    chars.as_str()
 }
