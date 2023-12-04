@@ -99,7 +99,7 @@ pub fn trebuchet_part2(str: &str) -> u32 {
 mod part2 {
     #[test]
     fn example() {
-        assert_eq!(super::trebuchet_part2(";
+        assert_eq!(super::trebuchet_part2("\
             two1nine
             eightwothree
             abcone2threexyz
