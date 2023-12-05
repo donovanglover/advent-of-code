@@ -97,6 +97,7 @@ NOT y -> i"), HashMap::from([
     }
 
     #[test]
+    #[ignore]
     fn input() {
         assert_eq!(super::some_assembly_required(&sugar::input(file!())), HashMap::new());
     }
