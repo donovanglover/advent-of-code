@@ -18,6 +18,21 @@ pub fn input(file: &str) -> String {
     String::new()
 }
 
+/// Given a string `line`, return a vector of all numbers on that line.
+pub fn get_nums(line: &str) -> Vec<i32> {
+    let words: Vec<&str> = line.split(' ').collect();
+    let mut numbers: Vec<i32> = vec![];
+
+    for maybe_number in words {
+        if let Ok(number) = maybe_number.parse() {
+            numbers.push(number);
+        }
+    }
+
+    numbers
+
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
