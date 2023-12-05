@@ -34,15 +34,15 @@ pub fn probably_a_fire_hazard(str: &str) -> usize {
         let x2: usize = b[0].parse().unwrap();
         let y2: usize = b[1].parse().unwrap();
 
-        for i in x1..(x2 + 1) {
-            for j in y1..(y2 + 1) {
-                lights[i][j] = toggle && !lights[i][j] || turn_on;
+        for row in lights.iter_mut().take(x2 + 1).skip(x1) {
+            for light in row.iter_mut().take(y2 + 1).skip(y1) {
+                *light = toggle && !*light || turn_on;
             }
         }
     }
 
-    for i in 0..lights.len() {
-        num_lights += lights[i].into_iter().filter(|b| *b).count();
+    for light in &lights {
+        num_lights += light.iter().filter(|b| **b).count();
     }
 
     num_lights
@@ -65,7 +65,7 @@ mod part1 {
 
 pub fn probably_a_fire_hazard_part2(str: &str) -> usize {
     let mut num_lights = 0;
-    let mut lights = vec![[0 as usize; 1000]; 1000];
+    let mut lights = vec![[0_usize; 1000]; 1000];
 
     for line in str.lines() {
         let mut words = line.split(' ');
@@ -99,27 +99,27 @@ pub fn probably_a_fire_hazard_part2(str: &str) -> usize {
         let x2: usize = b[0].parse().unwrap();
         let y2: usize = b[1].parse().unwrap();
 
-        for i in x1..(x2 + 1) {
-            for j in y1..(y2 + 1) {
+        for row in lights.iter_mut().take(x2 + 1).skip(x1) {
+            for light in row.iter_mut().take(y2 + 1).skip(y1) {
                 if toggle {
-                    lights[i][j] += 2;
+                    *light += 2;
                     continue;
                 }
 
                 if turn_on {
-                    lights[i][j] += 1;
+                    *light += 1;
                     continue;
                 }
 
-                if lights[i][j] > 0 {
-                    lights[i][j] -= 1;
+                if *light > 0 {
+                    *light -= 1;
                 }
             }
         }
     }
 
-    for i in 0..lights.len() {
-        num_lights += lights[i].into_iter().sum::<usize>();
+    for light in &lights {
+        num_lights += light.iter().sum::<usize>();
     }
 
     num_lights
