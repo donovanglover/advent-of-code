@@ -50,3 +50,19 @@ mod part1 {
         assert_eq!(super::elves_look_elves_say("1113222113".to_string()), 252594);
     }
 }
+
+pub fn elves_look_elves_say_part2(mut str: String) -> usize {
+    for _ in 0..50 {
+        str = look_and_say(str);
+    }
+
+    str.len()
+}
+
+#[cfg(test)]
+mod part2 {
+    #[test]
+    fn input() {
+        assert_eq!(super::elves_look_elves_say_part2("1113222113".to_string()), 3579328);
+    }
+}
