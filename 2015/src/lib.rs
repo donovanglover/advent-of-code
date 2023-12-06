@@ -22,6 +22,9 @@ pub mod day7;
 #[path="10.rs"]
 pub mod day10;
 
+#[path="12.rs"]
+pub mod day12;
+
 #[path="16.rs"]
 pub mod day16;
 
