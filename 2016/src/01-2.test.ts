@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.208.0/assert/mod.ts";
+import { assertEquals } from "std::assert";
 
 function no_time_for_a_taxi_cab_part2(s: string): number {
   let x = 0;
