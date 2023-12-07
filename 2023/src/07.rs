@@ -132,3 +132,82 @@ QQQJA 483"), 6440);
         assert_eq!(super::camel_cards(&sugar::input(file!())), 251136060);
     }
 }
+
+static STRENGTH_JOKER: [char; 14] = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2', 'J'];
+
+pub fn camel_cards_part2(str: &str) -> u32 {
+    let mut total_winnings = 0;
+    let mut hands: Vec<Hand> = vec![];
+
+    for line in str.lines() {
+        let hand: String = line.split_whitespace().next().unwrap().to_string();
+        let bid: u32 = line.split_whitespace().last().unwrap().parse().unwrap();
+        let mut letters: IndexMap<char, u32> = IndexMap::new();
+
+        for ch in hand.chars() {
+            *letters.entry(ch).or_insert(0) += 1;
+        }
+
+        let mut new_letters = letters.clone();
+
+        if let Some(i) = letters.get(&'J') {
+            let n = i.clone();
+            letters.remove(&'J');
+
+            for (k, v) in &letters {
+                new_letters.insert(*k, v + n);
+            }
+        }
+
+        new_letters.sort_by(|_, v1, _, v2| v2.cmp(v1));
+
+        let hand_type: HandType = get_type(new_letters);
+        let strength: u32 = get_hand_strength(hand_type);
+        let tiebreaker = get_joker_tiebreaker(&hand);
+
+        hands.push(Hand { hand, strength, bid, tiebreaker })
+    }
+
+    hands.sort_by(|a, b| b.strength.cmp(&a.strength).then(b.tiebreaker.cmp(&a.tiebreaker)));
+
+    hands.reverse();
+
+    for (i, hand) in hands.iter().enumerate() {
+        total_winnings += hand.bid * ((i as u32) + 1);
+    }
+
+    total_winnings
+}
+
+fn get_joker_tiebreaker(hand: &String) -> [u32; 5] {
+    let mut array: [u32; 5] = [0, 0, 0, 0, 0];
+
+    for (i, char) in hand.chars().enumerate() {
+        for j in 0..STRENGTH_JOKER.len() {
+            if STRENGTH_JOKER[j] == char {
+                array[i] = (STRENGTH_JOKER.len() - j) as u32;
+            }
+        }
+    }
+
+    array
+}
+
+#[cfg(test)]
+mod part2 {
+    #[test]
+    fn example() {
+        assert_eq!(super::camel_cards_part2("\
+32T3K 765
+T55J5 684
+KK677 28
+KTJJT 220
+QQQJA 483"), 5905);
+    }
+
+    #[test]
+    fn input() {
+        // too high
+        assert_eq!(super::camel_cards_part2(&sugar::input(file!())), 249579417);
+    }
+}
