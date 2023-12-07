@@ -2,7 +2,10 @@
   "imports": {
     "std/": "https://deno.land/std@0.208.0/"
   },
+
   "tasks": {
     "dev": "deno test --watch --allow-read"
-  }
+  },
+
+  "lock": false
 }
