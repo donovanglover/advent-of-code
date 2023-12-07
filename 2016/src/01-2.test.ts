@@ -1,4 +1,4 @@
-import { assertEquals } from "std::assert";
+import { assertEquals } from "std/assert/mod.ts";
 
 function no_time_for_a_taxi_cab_part2(s: string): number {
   let x = 0;
