@@ -5,7 +5,7 @@ struct Hand {
     hand: String,
     strength: u32,
     bid: u32,
-    tiebreaker: u64
+    tiebreaker: [u32; 5]
 }
 
 static STRENGTH: [char; 13] = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2'];
@@ -64,20 +64,18 @@ pub fn camel_cards(str: &str) -> u32 {
     total_winnings
 }
 
-fn get_tiebreaker(hand: &String) -> u64 {
-    let mut sum = 0;
+fn get_tiebreaker(hand: &String) -> [u32; 5] {
+    let mut array: [u32; 5] = [0, 0, 0, 0, 0];
 
-    for char in hand.chars() {
-        for i in 0..STRENGTH.len() {
-            if STRENGTH[i] == char {
-                let n = (STRENGTH.len() - i) as u32;
-
-                sum += (STRENGTH.len() as u64).pow(n);
+    for (i, char) in hand.chars().enumerate() {
+        for j in 0..STRENGTH.len() {
+            if STRENGTH[j] == char {
+                array[i] = (STRENGTH.len() - j) as u32;
             }
         }
     }
 
-    sum
+    array
 }
 
 fn get_type(letters: IndexMap<char, u32>) -> HandType {
@@ -131,7 +129,6 @@ QQQJA 483"), 6440);
 
     #[test]
     fn input() {
-        // too high
-        assert_eq!(super::camel_cards(&sugar::input(file!())), 251572040);
+        assert_eq!(super::camel_cards(&sugar::input(file!())), 251136060);
     }
 }
