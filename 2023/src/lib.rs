@@ -18,3 +18,6 @@ pub mod day6;
 
 #[path="07.rs"]
 pub mod day7;
+
+#[path="08.rs"]
+pub mod day8;
